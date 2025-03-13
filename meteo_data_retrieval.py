@@ -83,6 +83,12 @@ final_df.info()
 final_df['U'].isnull().sum()
 final_df['P'].isnull().sum()
 
+# Some of the stations have wind direction equal to "990", which means it was too unstable during the hour to calculate the average. We delete these rows to not harm the further calculations
+print(final_df[final_df["DD"] == 990].shape[0])
+final_df = final_df[final_df["DD"] != 990]
+
+
+
 # Off- and onshore aggregation
 
 # List of offshore stations' numbers
@@ -93,7 +99,7 @@ offshore_stations = {
 final_df["is_offshore"] = final_df["STN"].isin(offshore_stations)
 
 # Saving full data
-# final_df.to_csv('all_data_2017_2025.csv', index = False)
+#final_df.to_csv('all_data_2017_2025.csv', index = False)
 
 # Group and average while considering angular cyclicity
 def aggregate_weather(df):
@@ -115,14 +121,32 @@ avg_onshore_meteo_df = aggregate_weather(final_df[final_df['is_offshore'] == Fal
 
 avg_offshore_meteo_df = aggregate_weather(final_df[final_df['is_offshore'] == True])
 
-
-
 avg_onshore_meteo_df.info()
 avg_offshore_meteo_df.info()
 
+# Renaming the variables
+column_names = ['year_mon_day', 'hour', 'wind_dir_avg_10', 'wind_speed_h_avg', 'wind_speed_avg_10', 'air_pressure', 'humidity', 'full_datetime']
+
+avg_onshore_meteo_df.columns = column_names
+avg_offshore_meteo_df.columns = column_names
+
 
 # Saving data
-# avg_onshore_meteo_df.to_csv('avg_onshore_meteo_2017_2025.csv', index = False)
+#avg_onshore_meteo_df.to_csv('avg_onshore_meteo_2017_2025.csv', index = False)
 
-# avg_offshore_meteo_df.to_csv('avg_offshore_meteo_2017_2025.csv', index = False)
+#avg_offshore_meteo_df.to_csv('avg_offshore_meteo_2017_2025.csv', index = False)
 
+# Load energy production data
+energy_onshore_df = pd.read_csv("WindOnShore_data_2017_2025_clean.csv", index_col=0)
+energy_offshore_df = pd.read_csv("WindOffShore_data_2017_2025_clean.csv", index_col=0)
+
+# Explore variables in energy data
+energy_onshore_df.info()
+
+# Merge data
+onshore_merged = pd.merge(avg_onshore_meteo_df, energy_onshore_df, left_on='full_datetime',right_on='correct_days')
+offshore_merged = pd.merge(avg_offshore_meteo_df, energy_offshore_df, left_on='full_datetime',right_on='correct_days')
+
+# Save data
+onshore_merged.to_csv('final_onshore_data_2017_2025.csv', index = False)
+offshore_merged.to_csv('final_offshore_data_2017_2025.csv', index = False)
