@@ -137,8 +137,8 @@ avg_offshore_meteo_df.columns = column_names
 #avg_offshore_meteo_df.to_csv('avg_offshore_meteo_2017_2025.csv', index = False)
 
 # Load energy production data
-energy_onshore_df = pd.read_csv("WindOnShore_data_2017_2025_clean.csv", index_col=0)
-energy_offshore_df = pd.read_csv("WindOffShore_data_2017_2025_clean.csv", index_col=0)
+energy_onshore_df = pd.read_csv("data/preparation/WindOnShore_data_2017_2025_clean.csv", index_col=0)
+energy_offshore_df = pd.read_csv("data/preparation/WindOffShore_data_2017_2025_clean.csv", index_col=0)
 
 # Explore variables in energy data
 energy_onshore_df.info()
@@ -148,5 +148,5 @@ onshore_merged = pd.merge(avg_onshore_meteo_df, energy_onshore_df, left_on='full
 offshore_merged = pd.merge(avg_offshore_meteo_df, energy_offshore_df, left_on='full_datetime',right_on='correct_days')
 
 # Save data
-onshore_merged.to_csv('final_onshore_data_2017_2025.csv', index = False)
-offshore_merged.to_csv('final_offshore_data_2017_2025.csv', index = False)
+onshore_merged.to_csv('data/final_onshore_data_2017_2025.csv', index = False)
+offshore_merged.to_csv('data/final_offshore_data_2017_2025.csv', index = False)
