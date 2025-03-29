@@ -1,10 +1,6 @@
 # Watts-next
 In this repo we collaborate on our machine learning project on energy use patterns prediction. 
 
-# DSAstronauts
-This our repo for co-operating on the group project for Data Structures &amp; Algorithms 
-
-
 # Repo Management
 Here are some guidelines to avoid merge conflicts and ensure that our repo is as functional as possible.  
 
