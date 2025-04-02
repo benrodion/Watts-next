@@ -1,3 +1,5 @@
+import pandas as pd
+
 # Fix function
 def fix_datetime_format(date_str):
     parts = date_str.split("-")
@@ -11,6 +13,6 @@ def fix_datetime_format(date_str):
         return pd.Timestamp(year, month, day, hour)
 
 # Apply the fix
-data["correct_days"] = data["correct_days"].apply(fix_datetime_format)
+#data["correct_days"] = data["correct_days"].apply(fix_datetime_format)
 # Create a unique numerical index
 #data['unique_id'] = range(1, len(data)+1)  # Ensuring uniqueness
