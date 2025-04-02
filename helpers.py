@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 # Fix function
 def fix_datetime_format(date_str):
@@ -12,7 +13,34 @@ def fix_datetime_format(date_str):
     else:
         return pd.Timestamp(year, month, day, hour)
 
-# Apply the fix
-#data["correct_days"] = data["correct_days"].apply(fix_datetime_format)
-# Create a unique numerical index
-#data['unique_id'] = range(1, len(data)+1)  # Ensuring uniqueness
+
+
+# a function that creates 3D data that we need 
+def create_sliding_windows(data, x_len=400, y_len=25, step=None):
+    """
+    Create non-overlapping windows of X and Y from a time series.
+    
+    Parameters:
+        data (array-like): the full dataset 
+        x_len (int): Length of input sequence
+        y_len (int): Length of target sequence
+        step (int): Step size between windows (defaults to x_len + y_len)
+    
+    Returns:
+        X_windows: List of input arrays
+        Y_windows: List of output arrays
+    """
+    if step is None:
+        step = x_len + y_len
+    
+    X_windows = []
+    Y_windows = []
+
+    max_start = len(data) - (x_len + y_len) #to stay within the limits of the data set 
+    for start in range(0, max_start + 1, step):
+        end_x = start + x_len
+        end_y = end_x + y_len
+        X_windows.append(data[start:end_x])
+        Y_windows.append(data[end_x:end_y])
+    
+    return np.array(X_windows), np.array(Y_windows)
