@@ -4,7 +4,7 @@ Project prepared by MDS 2026 class students of Hertie School for the Machine Lea
 Group: Benedict Anderer, Sofiya Berdiyeva, Polina Ianina, Kirill Kharlashkin, Franka Tetteroo.
 
 ## Summary
-The primary goal of this project is to predict future wind power generation for both **offshore and onshore** Dutch wind farms. The overarching motivation is to improve grid management and mitigate issues like curtailment and redispatch, which arise from the volatility of wind power and pose challenges to the energy transition. The main performance measure used to evaluate the models is the Mean Squared Error.
+The primary goal of this project was to predict future wind power generation for both **offshore and onshore** Dutch wind farms. The overarching motivation was to improve grid management and mitigate issues like curtailment and redispatch, which arise from the volatility of wind power and pose challenges to the energy transition. Mean Squared Error was the main performance measure used to evaluate the models.
 
 ## Data Sources
 
