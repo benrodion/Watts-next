@@ -1,5 +1,6 @@
 # Watts next? Time series analysis for wind energy production in the Netherlands.
 Project prepared by MDS 2026 class students of Hertie School for the Machine Learning course.
+
 Group: Benedict Anderer, Sofiya Berdiyeva, Polina Ianina, Kirill Kharlashkin, Franka Tetteroo.
 
 ## Summary
@@ -13,6 +14,8 @@ The project utilised several data sources:
 *   **Weather Data:** Obtained from [**The Royal Netherlands Meteorological Institute (KNMI)**](https://www.daggegevens.knmi.nl/klimatologie/uurgegevens). Key [variables](https://english.knmidata.nl/open-data/actuele10mindataknmistations) included **wind direction, hourly average wind speed, wind speed averaged over 10 minutes, air pressure, and relative humidity**. Data was collected for multiple stations and categorised for offshore and onshore analysis.
 *   **Price Data:** Downloaded from the website [**Jeroen.nl**](Jeroen.nl), providing dynamic electricity prices for consumers. Included only as an experimental feature.
 
+Hourly data were aggregated as average values per day, week and month to run the models with different granularities.
+
 ## Models
 
 *   **Baseline Models:**
@@ -24,8 +27,6 @@ The project utilised several data sources:
     *   **XGBoost**: Explored variations including using the log of wind production as the label and including price data as a feature.
     *   **Prophet (from Facebook/Meta)**: Applied to monthly, weekly, and daily aggregates.
     *   **Chronos**: Used for monthly and weekly aggregates.
-
-These models were applied and evaluated across different data granularities: monthly, weekly, daily, and hourly.
 
 ## License
 
