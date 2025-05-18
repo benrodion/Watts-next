@@ -16,6 +16,90 @@ The project utilised several data sources:
 
 Hourly data were aggregated as average values per day, week and month to run the models with different granularities.
 
+## Repo Structure
+The repo is structured as follows: the 'data'-folder contains the data we worked with, 'EDA' contains the exploratory data analysis, 'models' is where the notebooks in which we developed the models are located, 'plots' contains the plots we used for our presentation, and 'visualization' contains the code with which we created our visuals. 'old' is a folder with material we did not include in the final project. 
+├──  readings on ML for WE prediction
+│   ├── Predicting WE generation using meteo data Turkiye.pdf
+│   ├── Summary_readings.docx
+│   ├── Wind power prediction ML models.pdf
+│   └── Wind power prediction using wind speed.pdf
+├── data
+│   ├── final_offshore_data_2017_2025.csv
+│   ├── final_onshore_data_2017_2025.csv
+│   ├── Offshore_official_data_incl_prices.csv
+│   ├── offshore_rf.csv
+│   ├── Onshore_official_data_incl_prices.csv
+│   ├── preparation
+│   │   ├── avg_offshore_meteo_2017_2025.csv
+│   │   ├── avg_onshore_meteo_2017_2025.csv
+│   │   ├── ElectricityPricesDataRetrieval.ipynb
+│   │   ├── KNMI_data_retrieval.ipynb
+│   │   ├── meteo_data_retrieval.py
+│   │   ├── WindGeneration_onshore_2017_2025.csv
+│   │   ├── WindGenerationDataRetrieval.ipynb
+│   │   ├── WindOffShore_data_2017_2025_clean.csv
+│   │   ├── WindOffShore_data_2017_2025.csv
+│   │   └── WindOnShore_data_2017_2025_clean.csv
+│   ├── Stations_map.pbix
+│   └── Stations.csv
+├── EDA
+│   ├── EDA.ipynb
+│   └── EDA.pdf
+├── helpers.py
+├── LICENSE
+├── models
+│   ├── model_development.ipynb
+│   ├── model_research.ipynb
+│   ├── models_chronos.ipynb
+│   ├── models_ensemble.ipynb
+│   ├── models_prophet.ipynb
+│   ├── models_sarimax.ipynb
+│   ├── sandbox_model_random_forest.ipynb
+│   ├── TS + HW + SARIMAX_very final.ipynb
+│   ├── TS analysis + HW + SARIMAX_final.ipynb
+│   ├── XGBoostAllOffshore-3.ipynb
+│   ├── XGBoostAllOffshore.ipynb
+│   ├── XGBoostAllOnshore.ipynb
+│   ├── XGBoostPriceOffshore.ipynb
+│   └── XGBoostPriceOnshore.ipynb
+├── old
+│   ├── LSTM.ipynb
+│   └── models_LSTM.ipynb
+├── plots
+│   ├── ensemble_off_d.png
+│   ├── ensemble_off_h.png
+│   ├── ensemble_off_m.png
+│   ├── ensemble_off_w.png
+│   ├── ensemble_on_d.png
+│   ├── ensemble_on_h.png
+│   ├── ensemble_on_m.png
+│   ├── ensemble_on_w.png
+│   ├── off_d.png
+│   ├── off_h.png
+│   ├── off_m.png
+│   ├── off_w.png
+│   ├── on_d.png
+│   ├── on_h.png
+│   ├── on_m.png
+│   ├── on_w.png
+│   ├── upd_off_d.png
+│   ├── upd_off_h.png
+│   ├── upd_off_m.png
+│   ├── upd_off_w.png
+│   ├── upd_on_d.png
+│   ├── upd_on_h.png
+│   ├── upd_on_m.png
+│   └── upd_on_w.png
+├── readings on ML for WE prediction
+│   ├── Summary_readings.docx
+│   └── Wind power prediction ML models.pdf
+├── README.md
+└── visualization
+    ├── models_chronos graph.ipynb
+    ├── models_prophet graph.ipynb
+    ├── Results_visuals_new.ipynb
+    └── Results_visuals.ipynb
+
 ## Models
 
 *   **Baseline Models:**
