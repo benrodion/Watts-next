@@ -18,6 +18,7 @@ Hourly data were aggregated as average values per day, week and month to run the
 
 ## Repo Structure
 The repo is structured as follows: the 'data'-folder contains the data we worked with, 'EDA' contains the exploratory data analysis, 'models' is where the notebooks in which we developed the models are located, 'plots' contains the plots we used for our presentation, and 'visualization' contains the code with which we created our visuals. 'old' is a folder with material we did not include in the final project. 
+```
 ├──  readings on ML for WE prediction
 │   ├── Predicting WE generation using meteo data Turkiye.pdf
 │   ├── Summary_readings.docx
@@ -99,7 +100,7 @@ The repo is structured as follows: the 'data'-folder contains the data we worked
     ├── models_prophet graph.ipynb
     ├── Results_visuals_new.ipynb
     └── Results_visuals.ipynb
-
+```
 ## Models
 
 *   **Baseline Models:**
